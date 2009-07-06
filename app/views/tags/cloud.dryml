@@ -1,0 +1,7 @@
+<index-page>
+  <content-body: replace>
+    <% tag_cloud @tags, %w(cloud1 cloud2 cloud3 cloud4 cloud5) do |tag,css_class| %>
+      <a with="&tag" class="#{css_class}" />
+    <% end %>
+  </content-body:>
+</index-page>

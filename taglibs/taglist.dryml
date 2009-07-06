@@ -1,0 +1,48 @@
+<def tag="tag-list">
+  <% target = this %> 
+  <h3 param="tag-heading">Tags</h3>
+  <collection:taggings part="tags" param>
+    <a:tag parm /><delete-button label="x" param />
+  </collection>
+  <form with="&this.taggings.new" update="tags" reset-form refocus-form param>
+    <div>
+      Add a tag:
+      <name-one:tag complete-target="&target" completer="new_tag_name" />
+    </div>
+  </form>
+</def>
+
+<def tag="show-page" for="Tag">
+  <page merge>
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">Tag: <name /></h2>
+        <record-flags param />
+      </header>
+      <section param="content-body">
+      <collection:taggings>
+        <do:taggable><em><view:class /></em>: <a /></do>
+      </collection>
+      </section>
+    </content:>
+  </page>
+</def>
+
+<def tag="index-page" for="Tag">
+  <page merge title="Tags">
+    <body: class="index-page tag" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Tags</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+        <% tag_cloud @tags, %w(cloud1 cloud2 cloud3 cloud4 cloud5) do |tag,css_class| %>
+          <a with="&tag" class="#{css_class}" />
+        <% end %>
+      </section>
+    </content:>
+  </page>
+</def>

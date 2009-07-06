@@ -1,0 +1,7 @@
+<show-page>
+  <after-content-body:>
+    <collection:taggings>
+      <do:taggable><em><view:class /></em>: <a /></do>
+    </collection>
+  </after-content-body:>
+</show-page>

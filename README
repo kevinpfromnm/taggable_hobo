@@ -1,0 +1,34 @@
+Taggable Hobo
+===============================
+
+Taggable hobo provides tags and views common to using tags.
+
+Models:
+  tag
+  tagging
+
+  Added these primarily to be able to use hobo model controller easily.  Also, these define standard hobo permissions, current view is all and edit is admin only.
+
+Controllers:
+  tags
+    Provides a show and index view.  Show lists and links all items tagged with the tag.
+  tagging
+    Provides a name-one completer and delete,create ajax functionality.
+
+Views:
+  tags:
+    show - shows links to tagged content as well
+    index - tag cloud like view
+
+Tags:
+  <tag-list>
+    Lists tags as a collection and if user has rights to add tags (see model permissions).
+
+
+Example
+=======
+
+Include this line after your rapid and auto taglib includes but before any tag related overrides.
+<include src="taglist" plugin="taggable_hobo" />
+
+Copyright (c) 2009 [Kevin Potter], released under the MIT license
