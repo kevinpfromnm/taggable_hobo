@@ -3,6 +3,8 @@ Taggable Hobo
 
 Taggable hobo provides tags and views common to using tags.
 
+Requires acts_as_taggable_on_steroids and hobo to load before this plugin.
+
 Models:
   tag
   tagging
