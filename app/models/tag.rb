@@ -2,7 +2,7 @@ class Tag < ActiveRecord::Base
   hobo_model
 
   fields do
-    name :string
+    name :string, :unique => true
   end
   
   has_many :taggings, :accessible => true
