@@ -1,9 +1,11 @@
 <def tag="tag-list">
   <% target = this %> 
   <h3 param="tag-heading">Tags</h3>
-  <collection:taggings part="tags" param>
-    <a:tag parm /><delete-button label="x" param />
-  </collection>
+  <div param="collection-wrap">
+    <collection:taggings part="tags">
+      <a:tag /><delete-button label="x" />
+    </collection>
+  </div>
   <form with="&this.taggings.new" update="tags" reset-form refocus-form param>
     <div>
       Add a tag:
