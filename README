@@ -23,14 +23,32 @@ Views:
     index - tag cloud like view
 
 Tags:
-  <tag-list>
-    Lists tags as a collection and if user has rights to add tags (see model permissions).
+  tag-list
+    Parameters:
+      tag-heading:
+      collection-wrap: Note: if you replace this, you'll need to redo the tags 'part' entirely.  Limitation of not being able to use param under a part.
+      form:
+        label:
+    Lists tags as a collection and form if user has rights to add tags (see model permissions).
+  
+  show-page for="Tag"
+    Uses taggings as the collection and then shows a list of each taggable, it's class and a link to the object
 
+  index-page for="Tag"
+    Uses the tag_cloud helper from acts_as_taggable_on_steroids to generate a list of all tags and links to each tags show page.
+
+Stylesheet:
+  taggable_hobo.css
+    This is NOT being moved in on install.  They are suggested styles for formatting the tag cloud and delete button on tag-list.
 
 Example
 =======
 
 Include this line after your rapid and auto taglib includes but before any tag related overrides.
 <include src="taglist" plugin="taggable_hobo" />
+
+Add <tag-list /> somewhere on your show page for a model that has tags.
+
+Copy the styles from public/stylesheets/taggable_hobo.css to your public/stylesheets/application.css if desired.  Otherwise, define styles for cloud1-cloud5 styles for your tag cloud display.  1 is fewest tags and 5 is most.
 
 Copyright (c) 2009 [Kevin Potter], released under the MIT license

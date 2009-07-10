@@ -8,7 +8,7 @@
   </div>
   <form with="&this.taggings.new" update="tags" reset-form refocus-form param>
     <div>
-      Add a tag:
+      <label for="tagging[tag]" param>Add a tag:</label>
       <name-one:tag complete-target="&target" completer="new_tag_name" />
     </div>
   </form>
