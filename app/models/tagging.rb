@@ -9,21 +9,22 @@ class Tagging < ActiveRecord::Base
   belongs_to :taggable, :polymorphic => true
 
   validates_presence_of :tag
+  validates_uniqueness_of :tag_id, 
+    :scope => [:taggable_type, :taggable_id], 
+    :message => 'already in place.'
+
   # --- Permissions --- #
 
   def create_permitted?
     acting_user.administrator?
-    true
   end
 
   def update_permitted?
     acting_user.administrator?
-    true
   end
 
   def destroy_permitted?
     acting_user.administrator?
-    true
   end
 
   def view_permitted?(field)

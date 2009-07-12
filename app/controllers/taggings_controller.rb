@@ -4,7 +4,12 @@ class TaggingsController < ActionController::Base
   auto_actions :write_only
 
   def create
-    params[:tagging][:tag] = { :name => params[:tagging][:tag] }
-    hobo_create
+    tag_name = params[:tagging][:tag]
+    params[:tagging][:tag] = nil
+    tagging = Tagging.new params[:tagging]
+    tagging.tag = Tag.find_by_name(tag_name) || Tag.new(:name => tag_name)
+    tagging.save
+    self.this ||= tagging
+    create_response :new
   end
 end
